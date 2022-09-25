@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     my_parser = argparse.ArgumentParser(
 	    usage = "%(prog)s  'string' [options]",
-	    description='PubMed API scraper that collects papers info and store them in a database')
+	    description='PubMed API scraper that collects papers information and store them in a database')
     
     my_parser.add_argument('string',
                        type=str,
@@ -20,12 +20,12 @@ if __name__ == '__main__':
                         type=int,
                         metavar = '',
                         default=100000,
-                        help='the number of paper you would like to retrieve, default 100000'
+                        help='the number of papers you would like to retrieve, default 100000'
     )
 
     group.add_argument('--all',
                         action='store_true',
-                        help='retrieve all the paper'
+                        help='retrieve all the papers'
     )
 
     my_parser.add_argument('--format',
