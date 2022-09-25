@@ -1,6 +1,6 @@
 # PubMed Scraper
 
-Python program able, given a search term, to scrape PubMed API to collect generic informations about each result
+Python program able, given a search term, to scrape PubMed API and to collect generic information about each result
 
 ## Installation
 Clone this repository
@@ -18,15 +18,15 @@ pip install pandas
 ```text
 usage: main.py  'string' [options]
 
-PubMed API scraper that collects papers info and store them in a database
+PubMed API scraper that collects papers information and store them in a database
 
 positional arguments:
   string               the string you would like to search on PubMed
 
 options:
   -h, --help           show this help message and exit
-  --number             the number of paper you would like to retrieve, default 100000
-  --all                retrieve all the paper
+  --number             the number of papers you would like to retrieve, default 100000
+  --all                retrieve all the papers
   --format {csv,json}  define the database format, default csv
 ```
 Here an example:
