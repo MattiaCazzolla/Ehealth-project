@@ -25,13 +25,13 @@ positional arguments:
 
 options:
   -h, --help           show this help message and exit
-  --number             the number of papers you would like to retrieve, default 100000
+  --quantity           the number of papers you would like to retrieve, default 100000
   --all                retrieve all the papers
   --format {csv,json}  define the database format, default csv
 ```
 Here an example:
 ```bash
-python main.py 'machine learning' --number 200 --format json
+python main.py 'machine learning' --quantity 200 --format json
 ```
 The database is saved in the current folder:
 ```text

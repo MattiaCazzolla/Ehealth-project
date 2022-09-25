@@ -16,7 +16,7 @@ if __name__ == '__main__':
                        help='the string you would like to search on PubMed')
     
     group = my_parser.add_mutually_exclusive_group(required=False)
-    group.add_argument('--number',
+    group.add_argument('--quantity',
                         type=int,
                         metavar = '',
                         default=100000,
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     if args.all:
         ls = E.get_uids(search_string, int(E.get_count(search_string)))
     else:
-        ls = E.get_uids(search_string, args.number)
+        ls = E.get_uids(search_string, args.quantity)
 
     fetch = Efetch(session, ls)
     df = fetch.get_data_UIDs()
