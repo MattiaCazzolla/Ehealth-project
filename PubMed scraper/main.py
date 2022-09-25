@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
 
     my_parser = argparse.ArgumentParser(
-	    usage = "%(prog)s  'string' [--number] [--all]",
+	    usage = "%(prog)s  'string' [options]",
 	    description='PubMed API scraper that collects papers info and store them in a database')
     
     my_parser.add_argument('string',
@@ -20,7 +20,7 @@ if __name__ == '__main__':
                         type=int,
                         metavar = '',
                         default=100000,
-                        help='the number of paper you would like to retrieve'
+                        help='the number of paper you would like to retrieve, default 100000'
     )
 
     group.add_argument('--all',
