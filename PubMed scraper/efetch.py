@@ -1,6 +1,6 @@
 import json
 import time
-from medline import medline_formatting
+from functions import medline_formatting, progress_bar
 
 class Efetch:
     def __init__(self, session, UIDs):
@@ -8,7 +8,7 @@ class Efetch:
         self.UIDs = UIDs
     
     def get_data_UID(self, UID):
-        time.sleep(0.1)
+        time.sleep(0.25)
         url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&rettype=medline&id='
         url = url + UID
         site = self.session.get(url).content
@@ -29,6 +29,7 @@ class Efetch:
         keywords = []
         pubblication_type = []
 
+        count = 1
         for UID in self.UIDs:
             data = self.get_data_UID(UID)
 
@@ -41,6 +42,9 @@ class Efetch:
             authors.append(self.get_authors(data))
             keywords.append(self.get_keywords(data))
             pubblication_type.append(self.get_pubblication_type(data))
+
+            progress_bar(count, len(self.UIDs))
+            count += 1
         
         dict = {
             'PMID' : self.UIDs,

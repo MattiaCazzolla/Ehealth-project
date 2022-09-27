@@ -1,8 +1,10 @@
 import requests
 import argparse
+import time
 import pandas as pd
 from esearch import Esearch
 from efetch import Efetch
+
 
 if __name__ == '__main__':
 
@@ -45,10 +47,16 @@ if __name__ == '__main__':
     else:
         ls = E.get_uids(search_string, args.quantity)
 
+    time.sleep(2)
+
     fetch = Efetch(session, ls)
     df = fetch.get_data_UIDs()
+    print('All papers info have been retrieved')
+
     pandas_df = pd.DataFrame(df)
     if args.format == 'csv':
         pandas_df.to_csv('database.csv', index=False)
     else:
         pandas_df.to_json('database.json')
+    
+    print('The database has been saved')
