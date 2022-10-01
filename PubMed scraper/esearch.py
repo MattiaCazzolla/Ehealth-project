@@ -1,12 +1,13 @@
 import json 
 
 class Esearch:
-    def __init__(self, session):
+    def __init__(self, session, string):
         self.session = session
+        self.string = string.replace(' ', '+')
     
-    def get_count(self, string):
+    def get_count(self):
         base_url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&rettype=count&format=json&term='
-        url = base_url + string
+        url = base_url + self.string
 
         site = self.session.get(url).content
         json_site = json.loads(site)
@@ -14,11 +15,12 @@ class Esearch:
         return json_site['esearchresult']['count']
     
 
-    def get_uids(self, string, max):
-        print('Retriving up to ' + str(max) + ' UIDs for the search "' + string + '"')
+    def get_uids(self, max):
+        print('Retriving up to ' + str(max) + ' UIDs for the search "' + self.string + '"')
+
         base_url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi'
         db = '?db=pubmed'
-        term = '&term=' + string.replace(' ', '+')
+        term = '&term=' + self.string.replace(' ', '+')
         retmode = '&retmode=json'
 
         all_UIDs = []
@@ -37,6 +39,7 @@ class Esearch:
 
                 retstart = retstart + 100000
                 retmax = max-retstart
+                
                 if retmax > 100000:
                     retmax = 100000
                 retmax = '&retmax='+str(retmax)

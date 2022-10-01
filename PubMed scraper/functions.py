@@ -1,10 +1,10 @@
 import os
 
 def medline_formatting(medline_string):
+
     medline_list = medline_string.split('\n')
 
     ls = []
-
     for elem in medline_list:
         if elem == '':
             continue
@@ -24,7 +24,6 @@ def medline_formatting(medline_string):
         
         ls_2.append([key, value])
 
-    
     return ls_2
 
 def progress_bar(value,tot):
@@ -33,8 +32,8 @@ def progress_bar(value,tot):
 
     bar = [x for x in range(0,100,5)]
     index = sum(1 for i in bar if i < perc)
-
     bar = '[' + '='*index + ' '*(20-index) + '] ' + str(round(perc,1)) + '%'
     os.system('cls' if os.name=='nt' else 'clear')
-    print('Retrieving ' + str(tot) + ' papers')
+    
+    print('Retrieving data from ' + str(tot) + ' papers')
     print(bar)
