@@ -14,7 +14,7 @@ def parser():
     group.add_argument('--quantity',
                         type=int,
                         metavar = '',
-                        default=100000,
+                        default=1000,
                         help='the number of papers you would like to retrieve, default 100000'
     )
 
@@ -27,5 +27,10 @@ def parser():
                         choices=['csv', 'json'],
                         default='csv',
                         help='define the database format, default csv'
+    )
+
+    my_parser.add_argument('--score',
+                        action='store_true',
+                        help='compute relevance score for each paper with respect to the search'
     )
     return my_parser
