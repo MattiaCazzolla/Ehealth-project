@@ -16,7 +16,7 @@ pip install pandas
 
 ## Usage
 ```text
-usage: main.py  'string' [options]
+usage: main.py 'string' [options]
 
 PubMed API scraper that collects papers information and store them in a database
 
@@ -25,7 +25,7 @@ positional arguments:
 
 options:
   -h, --help           show this help message and exit
-  --quantity           the number of papers you would like to retrieve, default 100000
+  --quantity           the number of papers you would like to retrieve, default 1000
   --all                retrieve all the papers
   --format {csv,json}  define the database format, default csv
 ```

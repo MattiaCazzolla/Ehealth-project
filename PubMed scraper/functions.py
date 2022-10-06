@@ -15,7 +15,7 @@ def medline_formatting(medline_string):
         else:
             elem = elem.strip()
             elem = elem.replace('\n', '')
-            ls[-1] = ls[-1] + elem
+            ls[-1] = ls[-1] + ' ' + elem
     
     ls_2 = [] 
     for elem in ls:
