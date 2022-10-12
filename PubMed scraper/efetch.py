@@ -50,13 +50,13 @@ class Efetch:
             'PMID' : self.UIDs,
             'doi' : doi,
             'Title': title,
-            'Pubblication Date' : pubblication_date,
+            'Publication Date' : pubblication_date,
             'Journal Title' : journal_title,
             'Authors' : authors,
             'Keywords' : keywords,
             'Abstract' : abstract,
-            'Pubblication type' : pubblication_type,
-            'Conflic Of Interests': coi,
+            'Publication type' : pubblication_type,
+            'Conflict Of Interests': coi,
         }
 
         return dict
