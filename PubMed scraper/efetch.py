@@ -8,7 +8,7 @@ class Efetch:
         self.UIDs = UIDs
     
     def get_data_UID(self, UID):
-        time.sleep(0.25)
+        time.sleep(0.4)
         url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&rettype=medline&id='
         url = url + UID
         site = self.session.get(url).content
@@ -19,44 +19,58 @@ class Efetch:
         return data
     
     def get_data_UIDs(self):
-        title  = []
-        pubblication_date = []
-        abstract = []
-        journal_title = []
-        coi = []
-        doi = []
+        titles  = []
+        pubblication_dates = []
+        abstracts = []
+        journal_titles = []
+        cois = []
+        dois = []
         authors = []
         keywords = []
-        pubblication_type = []
+        pubblication_types = []
 
         count = 1
         for UID in self.UIDs:
             data = self.get_data_UID(UID)
 
-            title.append(self.get_title(data))
-            pubblication_date.append(self.get_pubblication_date(data))
-            abstract.append(self.get_abstract(data))
-            journal_title.append(self.get_journal_title(data))
-            coi.append(self.get_coi(data))
-            doi.append(self.get_doi(data))
-            authors.append(self.get_authors(data))
-            keywords.append(self.get_keywords(data))
-            pubblication_type.append(self.get_pubblication_type(data))
+            title = self.get_title(data)
+            pubblication_date = self.get_pubblication_date(data)
+            abstract = self.get_abstract(data)
+            journal_title = self.get_journal_title(data)
+            coi = self.get_coi(data)
+            doi = self.get_doi(data)
+            author = self.get_authors(data)
+            keyword = self.get_keywords(data)
+            pubblication_type = self.get_pubblication_type(data)
+
+            if title == '' and pubblication_date == '' and abstract == '' and doi == '':
+                UIDs.append(UID)
+                continue
+
+            titles.append(title)
+            pubblication_dates.append(pubblication_date)
+            abstracts.append(abstract)
+            journal_titles.append(journal_title)
+            cois.append(coi)
+            dois.append(doi)
+            authors.append(author)
+            keywords.append(keyword)
+            pubblication_types.append(pubblication_type)
 
             progress_bar(count, len(self.UIDs))
             count += 1
         
         dict = {
             'PMID' : self.UIDs,
-            'doi' : doi,
-            'Title': title,
-            'Publication Date' : pubblication_date,
-            'Journal Title' : journal_title,
+            'doi' : dois,
+            'Title': titles,
+            'Publication Date' : pubblication_dates,
+            'Journal Title' : journal_titles,
             'Authors' : authors,
             'Keywords' : keywords,
-            'Abstract' : abstract,
-            'Publication type' : pubblication_type,
-            'Conflict Of Interests': coi,
+            'Abstract' : abstracts,
+            'Publication type' : pubblication_types,
+            'Conflict Of Interests': cois,
         }
 
         return dict
