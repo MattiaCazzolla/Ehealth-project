@@ -89,9 +89,13 @@ def compute_score(df, dictionary):
     scores = []
     for i in range(len(titles)):
         score = 0
-        title_occ = count_words(titles[i], {})
-        abst_occ = count_words(abstracts[i], {})
-        keys_occ = count_words(keywords[i], {})
+        try:
+            title_occ = count_words(titles[i], {})
+            abst_occ = count_words(abstracts[i], {})
+            keys_occ = count_words(keywords[i], {})
+        except:
+            scores.append(0)
+            continue
         
         for word in dictionary:
             if word in title_occ:
