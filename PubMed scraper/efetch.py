@@ -30,7 +30,9 @@ class Efetch:
         pubblication_types = []
 
         count = 1
-        for UID in self.UIDs:
+        i = 0
+        while i < len(self.UIDs):
+            UID = self.UIDs[i]
             data = self.get_data_UID(UID)
 
             title = self.get_title(data)
@@ -43,8 +45,8 @@ class Efetch:
             keyword = self.get_keywords(data)
             pubblication_type = self.get_pubblication_type(data)
 
-            if title == '' and pubblication_date == '' and abstract == '' and doi == '':
-                UIDs.append(UID)
+            if title == None and pubblication_date == None and abstract == None and doi == None:
+                self.UIDs.sort(key = UID.__eq__)
                 continue
 
             titles.append(title)
@@ -59,7 +61,9 @@ class Efetch:
 
             progress_bar(count, len(self.UIDs))
             count += 1
-        
+
+            i += 1
+
         dict = {
             'PMID' : self.UIDs,
             'doi' : dois,
@@ -104,6 +108,8 @@ class Efetch:
     def get_doi(self, data):
         for tag in data:
             if tag[0] == 'LID' and tag[1][-5:] == '[doi]':
+                return tag[1][:-6]
+            if tag[0] == 'AID' and tag[1][-5:] == '[doi]':
                 return tag[1][:-6]
     
     def get_authors(self, data):
