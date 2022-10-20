@@ -2,7 +2,7 @@ import argparse
 
 def parser():
     my_parser = argparse.ArgumentParser(
-	    usage = "%(prog)s 'string' [options]",
+	    usage = '%(prog)s "string" [options]',
 	    description='PubMed API scraper that collects papers information and store them in a database')
     
     my_parser.add_argument('string',

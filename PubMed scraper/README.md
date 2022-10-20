@@ -16,7 +16,7 @@ pip install pandas
 
 ## Usage
 ```text
-usage: main.py 'string' [options]
+usage: main.py "string" [options]
 
 PubMed API scraper that collects papers information and store them in a database
 
@@ -32,7 +32,7 @@ options:
 ```
 Here an example:
 ```bash
-python main.py 'cnn lung cancer' --quantity 200 --score
+python main.py "cnn lung cancer" --quantity 200 --score
 ```
 The database is saved in the current folder:
 ```text
