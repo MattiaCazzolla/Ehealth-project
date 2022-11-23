@@ -37,3 +37,75 @@ def progress_bar(value,tot):
     
     print('Retrieving data from ' + str(tot) + ' papers')
     print(bar)
+
+def request_words():
+    print('Building a dictionary')
+    ls = []
+    while True:
+        word = input('Please insert a word (quit to stop): ')
+        if word == 'quit':
+            break
+        else:
+            ls.append(word)
+
+    return ls
+
+def process_text(text):
+    if text == None:
+        return 
+    text = text.strip()
+    text = text.lower()
+    text = text.replace('.', ' ')
+    text = text.replace(',', ' ')
+    text = text.replace(':', ' ')
+    text = text.replace(';', ' ')
+    text = text.replace('*', ' ')
+    text = text.replace('/', ' ')
+    text = text.replace('-', ' ')
+    text = text.replace('&', ' ')
+    text = text.replace('=', ' ')
+    text = text.replace('(', ' ')
+    text = text.replace(')', ' ')
+    text = text.replace('[', ' ')
+    text = text.replace(']', ' ')
+    text = text.replace("'", ' ')
+    text = text.replace("<", ' ')
+    text = text.replace(">", ' ')
+    return text
+
+def count_words(text, dictionary):
+    text = process_text(text)
+    text = text.split()
+    for word in text:
+        if word not in dictionary:
+            dictionary[word] = 0
+        dictionary[word] += 1
+    return dictionary
+
+def compute_score(df, dictionary):
+    titles = df['Title'].tolist()
+    abstracts = df['Abstract'].tolist()
+    keywords = df['Keywords'].tolist()
+    scores = []
+    for i in range(len(titles)):
+        score = 0
+        try:
+            title_occ = count_words(titles[i], {})
+            abst_occ = count_words(abstracts[i], {})
+            keys_occ = count_words(keywords[i], {})
+        except:
+            scores.append(0)
+            continue
+        
+        for word in dictionary:
+            if word in title_occ:
+                score = score + title_occ[word]*3
+            if word in abst_occ:
+                score = score + abst_occ[word]
+            if word in keys_occ:
+                score = score + keys_occ[word]*3
+        
+        scores.append(score)
+    scores = [(i-min(scores))/(max(scores)-min(scores)) for i in scores]
+    scores = [round(i, 2) for i in scores]
+    return scores

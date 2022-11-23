@@ -27,7 +27,7 @@ class Esearch:
         if max > 100000:
 
             retstart = 0
-            count = int(self.get_count(string))
+            count = int(self.get_count())
             retmax = '&retmax=100000'
 
             while max > retstart:

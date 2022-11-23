@@ -2,12 +2,12 @@ import argparse
 
 def parser():
     my_parser = argparse.ArgumentParser(
-	    usage = "%(prog)s  'string' [options]",
+	    usage = '%(prog)s "string" [options]',
 	    description='PubMed API scraper that collects papers information and store them in a database')
     
     my_parser.add_argument('string',
                        type=str,
-                       help='the string you would like to search on PubMed')
+                       help='the string you would like to search (ideally keywords)')
     
     group = my_parser.add_mutually_exclusive_group(required=False)
 
@@ -31,6 +31,6 @@ def parser():
 
     my_parser.add_argument('--score',
                         action='store_true',
-                        help='compute relevance score for each paper with respect to the search'
+                        help='compute relevance score for each paper'
     )
     return my_parser

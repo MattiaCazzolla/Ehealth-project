@@ -4,6 +4,7 @@ import pandas as pd
 from esearch import Esearch
 from efetch import Efetch
 from parser import parser
+import functions
 
 if __name__ == '__main__':
 
@@ -34,6 +35,16 @@ if __name__ == '__main__':
     pandas_df = pd.DataFrame(df)
 
     print("All papers' information have been retrieved")
+
+    if args.score:
+      dictionary = functions.request_words()
+      if len(dictionary) == 0:
+        print('The dictionary is empty. The scores will not be computed')
+      else:
+        print('Computing Scores') 
+        scores = functions.compute_score(pandas_df, dictionary) 
+        pandas_df['Score'] = scores
+        print('Scores Computed')
     
     if args.format == 'csv':
         pandas_df.to_csv('database.csv', index=False)
