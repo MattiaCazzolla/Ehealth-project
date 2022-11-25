@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject coin;
-
+    public List<GameObject> possibleObjects;
     public List<float> possiblePositions;
 
     public float startTimeBtwnSpawn;
@@ -24,8 +23,18 @@ public class Spawner : MonoBehaviour
     {
         if (timeFromSpawn <= 0)
         {
-            int rand = Random.Range(0, possiblePositions.Count);
-            Instantiate(coin, new Vector3(6500,0, possiblePositions.ElementAt(rand)), Quaternion.identity);
+            int rand_position = Random.Range(0, possiblePositions.Count);
+            int rand_object = Random.Range(0, possibleObjects.Count);
+
+            if (rand_object == 2)
+            {
+                Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 150, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 0, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
+            }
+
             timeFromSpawn = startTimeBtwnSpawn;
         }
         else
