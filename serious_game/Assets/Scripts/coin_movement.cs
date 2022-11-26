@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class coin_movement : MonoBehaviour
 {
-    public float speed = 500;
+    public float speed = 100;
 
     void Update()
     {
-        transform.Translate(Vector3.left * (speed * Time.deltaTime));
-
-        if (transform.position.x < -2600)
-        {
-           Destroy(gameObject);
-        }
+        transform.Translate(Vector3.down * (speed * Time.deltaTime));
  
     }
 }

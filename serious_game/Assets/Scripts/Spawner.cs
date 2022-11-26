@@ -26,14 +26,7 @@ public class Spawner : MonoBehaviour
             int rand_position = Random.Range(0, possiblePositions.Count);
             int rand_object = Random.Range(0, possibleObjects.Count);
 
-            if (rand_object == 2)
-            {
-                Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 150, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 0, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
-            }
+            Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(possiblePositions.ElementAt(rand_position), 1500, 2500), Quaternion.identity);
 
             timeFromSpawn = startTimeBtwnSpawn;
         }
