@@ -12,7 +12,7 @@ public class coin_movement : MonoBehaviour
 
         if (transform.position.x < -2600)
         {
-           Destroy(gameObject);
+           gameObject.SetActive(false);
         }
  
     }
