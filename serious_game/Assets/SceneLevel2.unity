@@ -1628,6 +1628,13 @@ MonoBehaviour:
   - 2600
   startTimeBtwnSpawn: 2
   timeFromSpawn: 1
+  lenghtLists: 4
+  Objects0: []
+  Objects1: []
+  Objects2: []
+  i: 0
+  j: 0
+  k: 0
 --- !u!4 &1302070305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2304995635802410483, guid: 7cfcb5999e6bea64ba94ad6d0123f2ba, type: 3}
