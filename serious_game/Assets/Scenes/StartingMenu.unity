@@ -484,11 +484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2000
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
       propertyPath: m_LocalScale.z
@@ -496,15 +496,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 522
+      value: 374
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 237
+      value: 294
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -328
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -562,6 +562,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1329618146105846404, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0666
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329618146105846404, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329618146105846404, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.314
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd8e30e6a8773f74da3366f3dcabde1e, type: 3}
 --- !u!1 &1097204553
@@ -616,7 +628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.5701059, b: 0.1441082, a: 0.6666667}
+  m_Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
