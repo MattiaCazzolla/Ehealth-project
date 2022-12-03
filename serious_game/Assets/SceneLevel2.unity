@@ -1628,7 +1628,7 @@ MonoBehaviour:
   - 2600
   startTimeBtwnSpawn: 2
   timeFromSpawn: 1
-  lenghtLists: 4
+  lenghtLists: 2
   Objects0: []
   Objects1: []
   Objects2: []
