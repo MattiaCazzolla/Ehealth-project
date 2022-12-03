@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17997192, g: 0.22533657, b: 0.30672336, a: 1}
+  m_IndirectSpecularColor: {r: 0.17997196, g: 0.2253364, b: 0.30672306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3835,6 +3835,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: c34ae1147fbf6c943a483ef2889896bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c20328ea5735a64dad62b57c686a801, type: 2}
     - target: {fileID: 919132149155446097, guid: c34ae1147fbf6c943a483ef2889896bf, type: 3}
       propertyPath: m_Name
       value: emerald
@@ -4932,6 +4936,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4858889057402493013, guid: 1f2d7f744cf420c41bc486bd635d4082, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d0742ad5cc6d814fbec2c880610dd0e, type: 2}
     - target: {fileID: 919132149155446097, guid: 1f2d7f744cf420c41bc486bd635d4082, type: 3}
       propertyPath: m_Name
       value: diamond
