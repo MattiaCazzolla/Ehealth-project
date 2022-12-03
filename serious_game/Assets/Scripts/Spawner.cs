@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
             {
                 if (Objects1.Count <= lenghtLists)
                 {
-                    new_Object1 = Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 0, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
+                    new_Object1 = Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 150, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
                     Objects1.Add(new_Object1);
                     new_Object1.SetActive(true);
                 }
@@ -79,14 +79,14 @@ public class Spawner : MonoBehaviour
                     if (j >= 0 && j < lenghtLists)
                     {
                         new_Object1 = Objects1[j];
-                        new_Object1.transform.position = new Vector3(6500, 0, possiblePositions.ElementAt(rand_position));
+                        new_Object1.transform.position = new Vector3(6500, 150, possiblePositions.ElementAt(rand_position));
                         new_Object1.SetActive(true);
                         j++;
                     }
                     else if (j == lenghtLists)
                     {
                         new_Object1 = Objects1[lenghtLists];
-                        new_Object1.transform.position = new Vector3(6500, 0, possiblePositions.ElementAt(rand_position));
+                        new_Object1.transform.position = new Vector3(6500, 150, possiblePositions.ElementAt(rand_position));
                         new_Object1.SetActive(true);
                         j = 0;
                     }
@@ -96,7 +96,7 @@ public class Spawner : MonoBehaviour
             {
                 if (Objects2.Count <= lenghtLists)
                 {
-                    new_Object2 = Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 150, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
+                    new_Object2 = Instantiate(possibleObjects.ElementAt(rand_object), new Vector3(6500, 200, possiblePositions.ElementAt(rand_position)), Quaternion.identity);
                     Objects2.Add(new_Object2);
                     new_Object2.SetActive(true);
                 }
@@ -105,14 +105,14 @@ public class Spawner : MonoBehaviour
                     if (k >= 0 && k < lenghtLists)
                     {
                         new_Object2 = Objects2[k];
-                        new_Object2.transform.position = new Vector3(6500, 150, possiblePositions.ElementAt(rand_position));
+                        new_Object2.transform.position = new Vector3(6500, 200, possiblePositions.ElementAt(rand_position));
                         new_Object2.SetActive(true);
                         k++;
                     }
                     else if (k == lenghtLists)
                     {
                         new_Object2 = Objects2[lenghtLists];
-                        new_Object2.transform.position = new Vector3(6500, 150, possiblePositions.ElementAt(rand_position));
+                        new_Object2.transform.position = new Vector3(6500, 200, possiblePositions.ElementAt(rand_position));
                         new_Object2.SetActive(true);
                         k = 0;
                     }
