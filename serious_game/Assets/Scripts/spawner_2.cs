@@ -50,6 +50,7 @@ public class spawner_2 : MonoBehaviour
                     new_Object0.SetActive(true);
                 }
                 else
+                
                 {
                     if (i >= 0 && i < lenghtLists)
                     {
