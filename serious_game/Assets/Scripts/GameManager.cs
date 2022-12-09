@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoretoAdd)
     {
         score += scoretoAdd;
-        scoreText.text = "Score:" + score;
+        scoreText.text = "Score: " + score;
         Debug.Log("score added");
     }
     public void LoadGameScene()

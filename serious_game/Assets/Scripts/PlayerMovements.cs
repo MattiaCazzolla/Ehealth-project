@@ -18,16 +18,16 @@ public class PlayerMovements : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) && currentPos != new Vector3(-1600,0,3000))
+        if (Input.GetKey(KeyCode.LeftArrow) && currentPos != new Vector3(-1600,0,2500))
         {
-            increment = 1000;
+            increment = 500;
             gameObject.transform.position = new Vector3(-1600, 0, currentPos.z + increment);
             currentPos = gameObject.transform.position;
             increment = 0;
         }
-        if (Input.GetKey(KeyCode.RightArrow) && currentPos != new Vector3(-1600, 0,1000))
+        if (Input.GetKey(KeyCode.RightArrow) && currentPos != new Vector3(-1600, 0,1500))
         {
-            increment = -1000;
+            increment = -500;
             gameObject.transform.position = new Vector3(-1600, 0, currentPos.z + increment);
             currentPos = gameObject.transform.position;
             increment = 0;
