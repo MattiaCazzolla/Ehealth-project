@@ -5,8 +5,23 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private float delayBeforeLoading = 30f;
+    [SerializeField]
+    private int sceneBuildIndexToLoad;
+    private float timeElapsed;
+
+    private void Update()
+    {
+        timeElapsed += Time.deltaTime;
+        if(timeElapsed > delayBeforeLoading)
+        {
+            SceneManager.LoadScene(sceneBuildIndexToLoad);
+        }
+    }
     public int score;
     public TextMeshProUGUI scoreText;
+
     void Start()
     {
         score = 0;
@@ -20,11 +35,5 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
         Debug.Log("score added");
     }
-    public void LoadGameScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-//per caricare solo la demo o le settings quando clicco il button usare 
-// SceneManager.LoadScene("Settings");
-// Scenemanager.LoadScene("Demo");
+   
 }

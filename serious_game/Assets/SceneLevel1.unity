@@ -3975,6 +3975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27eece59c68645e48ad6586e5d6bf5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBeforeLoading: 30
+  sceneBuildIndexToLoad: 2
   score: 0
   scoreText: {fileID: 280212917}
 --- !u!4 &1015643098
