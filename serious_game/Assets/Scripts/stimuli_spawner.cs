@@ -40,12 +40,12 @@ public class stimuli_spawner : MonoBehaviour
             else {
                 if(rand_object == 1)
             {
-                    new_Object = Instantiate(possibleObjects[1], new Vector3(-1625, 155.52f, 2700), Quaternion.Euler(23.185f, 107.98f, 8.378f));
+                    new_Object = Instantiate(possibleObjects[1], new Vector3(-1625, 155.52f, 2800), Quaternion.Euler(23.185f, 107.98f, 8.378f));
                     new_Object.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
                 }
                 else
                 {
-                    new_Object = Instantiate(possibleObjects[2], new Vector3(-1750, 200, 2700), Quaternion.Euler(75.113f, -87.52f, 7.616f));
+                    new_Object = Instantiate(possibleObjects[2], new Vector3(-1750, 250, 2700), Quaternion.Euler(75.113f, -87.52f, 7.616f));
                     new_Object.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
 
                 }
