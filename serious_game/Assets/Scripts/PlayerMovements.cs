@@ -13,7 +13,7 @@ public class PlayerMovements : MonoBehaviour
     private void Awake()
     {
         currentPos = transform.position;
-        Time.fixedDeltaTime = 0.15f;
+        Time.fixedDeltaTime = 0.1f;
     }
 
     private void FixedUpdate()

@@ -8,13 +8,17 @@ using Random = UnityEngine.Random;
 
 public class stimuli_spawner : MonoBehaviour
 {
+    GameObject new_Object;
     public List<GameObject> possibleObjects;
     public List<float> possiblePositions;
     public List<Color> possibleColors;
 
     public float startTimeBtwnSpawn;
     public float timeFromSpawn;
-   
+
+    public float delayBeforeLoading = 5;
+    private float timeElapsed;
+
     private void Awake()
     {
         timeFromSpawn = startTimeBtwnSpawn;
@@ -23,9 +27,6 @@ public class stimuli_spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject new_Object0;
-        GameObject new_Object1;
-        GameObject new_Object2;
 
         if (timeFromSpawn <= 0)
         {
@@ -33,19 +34,19 @@ public class stimuli_spawner : MonoBehaviour
             int rand_color = Random.Range(0, possibleColors.Count);
             if (rand_object == 0)
             {
-                new_Object0 = Instantiate(possibleObjects[0], new Vector3(-1000, 0, 2500), Quaternion.identity);
-                new_Object0.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
+                new_Object = Instantiate(possibleObjects[0], new Vector3(-1750, 10, 2700), Quaternion.Euler(13.124f,90f,0f));
+                new_Object.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
             }
             else {
                 if(rand_object == 1)
             {
-                    new_Object1 = Instantiate(possibleObjects[1], new Vector3(-1000, 0, 2500), Quaternion.identity);
-                    new_Object1.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
+                    new_Object = Instantiate(possibleObjects[1], new Vector3(-1625, 155.52f, 2700), Quaternion.Euler(23.185f, 107.98f, 8.378f));
+                    new_Object.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
                 }
                 else
                 {
-                    new_Object2 = Instantiate(possibleObjects[2], new Vector3(-1000, 200, 2500), Quaternion.identity);
-                    new_Object2.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
+                    new_Object = Instantiate(possibleObjects[2], new Vector3(-1750, 200, 2700), Quaternion.Euler(75.113f, -87.52f, 7.616f));
+                    new_Object.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[rand_color]);
 
                 }
             }
@@ -54,6 +55,14 @@ public class stimuli_spawner : MonoBehaviour
         else
         {
             timeFromSpawn -= Time.deltaTime;
+        }
+
+        timeElapsed += Time.deltaTime;
+
+        if (timeElapsed > delayBeforeLoading)
+        {
+            Destroy(new_Object);
+            timeElapsed = 0;
         }
     }
 }
