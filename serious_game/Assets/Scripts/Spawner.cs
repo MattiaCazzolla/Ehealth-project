@@ -15,35 +15,61 @@ public class Spawner : MonoBehaviour
     public float startTimeBtwnSpawn;
     public float timeFromSpawn;
 
+    int rand_position;
+    int rand_object;
+
     public int lenghtLists=0;
     public List<GameObject> Objects0 = new List<GameObject>();
     public List<GameObject> Objects1 = new List<GameObject>();
-    public List<GameObject> Objects2 = new List<GameObject>(); //object 2=emerald 
+    public List<GameObject> Objects2 = new List<GameObject>();
+
+    GameObject new_Object0;
+    GameObject new_Object1;
+    GameObject new_Object2;
 
     public int i = 0;
     public int j = 0;
     public int k = 0;
 
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+
+
     private void Awake()
     {
         timeFromSpawn = startTimeBtwnSpawn;
     }
+    
 
-    // Update is called once per frame
     void Update()
     {
-        GameObject new_Object0;
-        GameObject new_Object1;
-        GameObject new_Object2;
+
+        if (gameManager.state == 0)
+        {
+            possibleColors[0] = Color.black;
+            possibleColors[1] = Color.black;
+            possibleColors[2] = Color.black;
+        }
+        else
+        {
+            possibleColors[0] = new Color(0.03025982f,0.1303901f,0.9433962f);
+            possibleColors[1] = new Color(1,0,0);
+            possibleColors[2] = new Color(0.08958072f,1f,0.05094329f);
+        }
 
         if (timeFromSpawn <= 0)
         {
-            int rand_position = Random.Range(0, possiblePositions.Count);
-            int rand_object = Random.Range(0, possibleObjects.Count);
+            rand_position = Random.Range(0, possiblePositions.Count);
+            rand_object = Random.Range(0, possibleObjects.Count);
+
             if (Objects0.Count <= lenghtLists)
             {
                 new_Object0 = Instantiate(possibleObjects[0], new Vector3(6500, 0, possiblePositions[0]), Quaternion.identity);
-                //new_Object0.AddComponent<MeshRenderer>();
                 Objects0.Append(new_Object0);
                 new_Object0.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[0]);
                 new_Object0.SetActive(true);
@@ -70,7 +96,6 @@ public class Spawner : MonoBehaviour
             if (Objects1.Count <= lenghtLists)
             {
                 new_Object1 = Instantiate(possibleObjects[1], new Vector3(6500, 150, possiblePositions[1]), Quaternion.identity);
-                //new_Object1.AddComponent<MeshRenderer>();
                 Objects1.Add(new_Object1);
                 new_Object1.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[1]);
                 new_Object1.SetActive(true);
@@ -97,7 +122,6 @@ public class Spawner : MonoBehaviour
             if (Objects2.Count <= lenghtLists)
             {
                 new_Object2 = Instantiate(possibleObjects[2], new Vector3(6500, 200, possiblePositions[2]), Quaternion.identity);
-                //new_Object2.AddComponent<MeshRenderer>();
                 Objects2.Add(new_Object2);
                 new_Object2.GetComponentInChildren<MeshRenderer>().material.SetColor("_Color", possibleColors[2]);
                 new_Object2.SetActive(true);
@@ -143,6 +167,7 @@ public class Spawner : MonoBehaviour
         }
         return alpha;
     }
+    
     public List<Color> ShuffleColors(List<Color> alpha)
     {
         for (int i = 0; i < alpha.Count; i++)
