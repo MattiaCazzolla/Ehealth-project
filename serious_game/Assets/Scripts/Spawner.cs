@@ -39,7 +39,6 @@ public class Spawner : MonoBehaviour
     }
 
 
-
     private void Awake()
     {
         timeFromSpawn = startTimeBtwnSpawn;

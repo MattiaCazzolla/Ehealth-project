@@ -16,11 +16,12 @@ public class stimuli_spawner : MonoBehaviour
     public float startTimeBtwnSpawn;
     public float timeFromSpawn;
 
-    public float delayBeforeLoading = 5;
+    public float delayBeforeLoading = 4;
     private float timeElapsed;
 
     private int rand_object;
     private int rand_color;
+    public int events = 0;
 
     public int current_type;
     public Color current_color;
@@ -58,6 +59,7 @@ public class stimuli_spawner : MonoBehaviour
             rand_object = Random.Range(0, possibleObjects.Count);
             rand_color = Random.Range(0, possibleColors.Count);
             rand_state = Random.Range(0, 2);
+            events += 1;
 
             if (rand_object == 0)
             {

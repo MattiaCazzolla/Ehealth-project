@@ -55,9 +55,17 @@ public class coin_movement : MonoBehaviour
                 scoreToAdd = 1;
         }
 
-        Debug.Log("hit a coin");
         gameObject.SetActive(false);
         gameObject.transform.position = new Vector3(-3000, 150, 2000);
         gameManager.UpdateScore(scoreToAdd);
+
+        float delta_react = stimuli.startTimeBtwnSpawn - gameManager.reactionTime ;
+        Debug.Log("Reaction time: " + delta_react);
+
+        if (delta_react > 0.05)
+            gameManager.UpdateReactList(delta_react);
+
+        
+        gameManager.reactionTime = 0;
     }
 }

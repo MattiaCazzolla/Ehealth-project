@@ -2556,6 +2556,7 @@ MonoBehaviour:
   startTimeBtwnSpawn: 5
   timeFromSpawn: 0
   delayBeforeLoading: 5
+  events: 0
   current_type: 0
   current_color: {r: 0, g: 0, b: 0, a: 0}
   rand_state: 0
@@ -4260,9 +4261,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayBeforeLoading: 60
   sceneBuildIndexToLoad: 2
-  state: 0
+  state: 2
   rand_state: 0
   score: 0
+  accuracy: 0
   scoreText: {fileID: 280212917}
   matchText: {fileID: 564969855}
 --- !u!4 &1015643098
