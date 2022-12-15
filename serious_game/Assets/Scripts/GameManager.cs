@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 using TMPro;
+using System.Linq;
+
 public class GameManager : MonoBehaviour
 {
     public float delayBeforeLoading = 30f;
@@ -12,6 +16,10 @@ public class GameManager : MonoBehaviour
     public int state = 0;
     public int rand_state;
     public int score;
+    public float accuracy;
+
+    public float reactionTime = 0;
+    public List<float> reactionTimeList = new List<float>();
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI matchText;
@@ -20,7 +28,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        UpdateScore(score);
         stimuli = GameObject.Find("STIMULI").GetComponent<stimuli_spawner>();
     }
 
@@ -28,8 +35,13 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         timeElapsed += Time.deltaTime;
+        reactionTime += Time.deltaTime;
+
         if(timeElapsed > delayBeforeLoading)
+        {
+            Debug.Log("Avg reaction time: " + reactionTimeList.Average());
             SceneManager.LoadScene(sceneBuildIndexToLoad);
+        }
 
         if (state == 0)
             matchText.text = "Match Shape";
@@ -49,7 +61,18 @@ public class GameManager : MonoBehaviour
     {
         score += scoretoAdd;
         scoreText.text = "Score: " + score;
-        Debug.Log("score added");
+        ComputeAccuracy();
+    }
+
+    public void ComputeAccuracy()
+    {
+        accuracy = (float) score / stimuli.events;
+        Debug.Log("Accuracy: " + accuracy);
+    }
+
+    public void UpdateReactList(float delta)
+    {
+        reactionTimeList = new List<float> (reactionTimeList.Append(delta));
     }
    
 }

@@ -8,12 +8,17 @@ public class PlayerMovements : MonoBehaviour
 {
     private float increment;
     public Vector3 currentPos;
-
+    private GameManager gameManager;
 
     private void Awake()
     {
         currentPos = transform.position;
         Time.fixedDeltaTime = 0.1f;
+    }
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void FixedUpdate()
@@ -24,6 +29,7 @@ public class PlayerMovements : MonoBehaviour
             gameObject.transform.position = new Vector3(-1600, 0, currentPos.z + increment);
             currentPos = gameObject.transform.position;
             increment = 0;
+            gameManager.reactionTime = 0;
         }
         if (Input.GetKey(KeyCode.RightArrow) && currentPos != new Vector3(-1600, 0,1500))
         {
@@ -31,6 +37,7 @@ public class PlayerMovements : MonoBehaviour
             gameObject.transform.position = new Vector3(-1600, 0, currentPos.z + increment);
             currentPos = gameObject.transform.position;
             increment = 0;
+            gameManager.reactionTime = 0;
         }
 
     }
