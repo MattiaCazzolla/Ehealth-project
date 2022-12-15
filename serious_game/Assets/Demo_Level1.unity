@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17997196, g: 0.2253364, b: 0.30672306, a: 1}
+  m_IndirectSpecularColor: {r: 0.17997192, g: 0.22533657, b: 0.30672336, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2747,6 +2747,7 @@ MonoBehaviour:
   - 1000
   - 2000
   - 3000
+  possibleColors: []
   startTimeBtwnSpawn: 2
   timeFromSpawn: 1
   lenghtLists: 5
@@ -2952,6 +2953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27eece59c68645e48ad6586e5d6bf5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBeforeLoading: 30
+  sceneBuildIndexToLoad: 0
   score: 0
   scoreText: {fileID: 585974343}
 --- !u!4 &972592645
@@ -4756,7 +4759,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.5
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
