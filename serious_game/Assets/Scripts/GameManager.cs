@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private float delayBeforeLoading = 30f;
-    [SerializeField]
-    private int sceneBuildIndexToLoad;
+    public float delayBeforeLoading = 30f;
+    public int sceneBuildIndexToLoad;
     private float timeElapsed;
-
+   
     private void Update()
     {
         timeElapsed += Time.deltaTime;
