@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class stimuli_spawner : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class stimuli_spawner : MonoBehaviour
     public int rand_state;
 
     private GameManager gameManager;
+    public TextMeshProUGUI matchText;
+
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -99,6 +102,18 @@ public class stimuli_spawner : MonoBehaviour
         {
             Destroy(new_Object);
             timeElapsed = 0;
+        }
+
+        if (gameManager.state == 0)
+            matchText.text = "Match Shape";
+        else if (gameManager.state == 1)
+            matchText.text = "Match Color";
+        else
+        {
+            if (rand_state == 0)
+                matchText.text = "Match Shape";
+            else
+                matchText.text = "Match Color";
         }
     }
 }

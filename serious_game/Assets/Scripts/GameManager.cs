@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,18 +18,19 @@ public class GameManager : MonoBehaviour
     public int rand_state;
     public int score;
     public float accuracy;
+    public int player = 0;
 
     public float reactionTime = 0;
     public List<float> reactionTimeList = new List<float>();
 
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI matchText;
     private stimuli_spawner stimuli;
+
+    public GameManager gameManager;
 
     void Start()
     {
+        DontDestroyOnLoad(gameManager);
         score = 0;
-        stimuli = GameObject.Find("STIMULI").GetComponent<stimuli_spawner>();
     }
 
 
@@ -39,33 +41,32 @@ public class GameManager : MonoBehaviour
 
         if(timeElapsed > delayBeforeLoading)
         {
-            Debug.Log("Avg reaction time: " + reactionTimeList.Average());
-            SceneManager.LoadScene(sceneBuildIndexToLoad);
-        }
-
-        if (state == 0)
-            matchText.text = "Match Shape";
-        else if (state == 1)
-            matchText.text = "Match Color";
-        else
-        {
-            if (stimuli.rand_state == 0)
-                matchText.text = "Match Shape";
+            if (reactionTimeList.Count < 1)
+            {
+                //Debug.Log("Avg reaction time: " + 5);
+            }
             else
-                matchText.text = "Match Color";
+            {
+                Debug.Log("Avg reaction time: " + reactionTimeList.Average());
+            }
+            SceneManager.LoadScene(sceneBuildIndexToLoad);
         }
     }
     
     
-    public void UpdateScore(int scoretoAdd)
+    public int UpdateScore(int scoretoAdd)
     {
         score += scoretoAdd;
-        scoreText.text = "Score: " + score;
-        ComputeAccuracy();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            ComputeAccuracy();
+        }
+        return score;
     }
 
     public void ComputeAccuracy()
     {
+        stimuli = GameObject.Find("STIMULI").GetComponent<stimuli_spawner>();
         accuracy = (float) score / stimuli.events;
         Debug.Log("Accuracy: " + accuracy);
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using TMPro;
 
 public class coin_movement : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class coin_movement : MonoBehaviour
     public int coin_type;
     private int scoreToAdd;
     private int stimuli_type;
+    public int score;
 
     private GameManager gameManager;
     private stimuli_spawner stimuli;
 
     Color stimuli_color;
     Color coin_color;
+
+    public TextMeshProUGUI scoreText;
 
     private void Start()
     {
@@ -57,7 +61,9 @@ public class coin_movement : MonoBehaviour
 
         gameObject.SetActive(false);
         gameObject.transform.position = new Vector3(-3000, 150, 2000);
-        gameManager.UpdateScore(scoreToAdd);
+        score = gameManager.UpdateScore(scoreToAdd);
+        scoreText.text = "Score: " + score;
+
 
         float delta_react = stimuli.startTimeBtwnSpawn - gameManager.reactionTime ;
         Debug.Log("Reaction time: " + delta_react);
