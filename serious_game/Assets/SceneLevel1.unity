@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17997192, g: 0.22533657, b: 0.30672336, a: 1}
+  m_IndirectSpecularColor: {r: 0.17997196, g: 0.2253364, b: 0.30672306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2560,6 +2560,7 @@ MonoBehaviour:
   current_type: 0
   current_color: {r: 0, g: 0, b: 0, a: 0}
   rand_state: 0
+  matchText: {fileID: 564969855}
 --- !u!1 &662900690
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,8 +4332,10 @@ MonoBehaviour:
   rand_state: 0
   score: 0
   accuracy: 0
+  reactionTime: 0
+  reactionTimeList: []
   scoreText: {fileID: 280212917}
-  matchText: {fileID: 564969855}
+  gameManager: {fileID: 1015643097}
 --- !u!4 &1015643098
 Transform:
   m_ObjectHideFlags: 0

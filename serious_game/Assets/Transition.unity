@@ -2504,6 +2504,7 @@ GameObject:
   - component: {fileID: 1017263539}
   - component: {fileID: 1017263541}
   - component: {fileID: 1017263540}
+  - component: {fileID: 1017263542}
   m_Layer: 5
   m_Name: Accuracy
   m_TagString: Untagged
@@ -2628,6 +2629,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017263538}
   m_CullTransparentMesh: 1
+--- !u!114 &1017263542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017263538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca0fba51ce48c343a6a5ce8ec45e369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accuracyText: {fileID: 1017263540}
+  gameManager: {fileID: 0}
 --- !u!1001 &1047123426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3530,6 +3545,7 @@ GameObject:
   - component: {fileID: 1238002814}
   - component: {fileID: 1238002816}
   - component: {fileID: 1238002815}
+  - component: {fileID: 1238002817}
   m_Layer: 5
   m_Name: score
   m_TagString: Untagged
@@ -3654,6 +3670,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238002813}
   m_CullTransparentMesh: 1
+--- !u!114 &1238002817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238002813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972bfbe3cab210d40927a03086addc1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1238002815}
+  gameManager: {fileID: 0}
 --- !u!1001 &1240170645
 PrefabInstance:
   m_ObjectHideFlags: 0
