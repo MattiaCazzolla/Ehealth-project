@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,11 +18,11 @@ public class GameManager : MonoBehaviour
     public int rand_state;
     public int score;
     public float accuracy;
+    public int player = 0;
 
     public float reactionTime = 0;
     public List<float> reactionTimeList = new List<float>();
 
-    public TextMeshProUGUI scoreText;
     private stimuli_spawner stimuli;
 
     public GameManager gameManager;
@@ -53,14 +54,14 @@ public class GameManager : MonoBehaviour
     }
     
     
-    public void UpdateScore(int scoretoAdd)
+    public int UpdateScore(int scoretoAdd)
     {
         score += scoretoAdd;
-        scoreText.text = "Score: " + score;
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             ComputeAccuracy();
         }
+        return score;
     }
 
     public void ComputeAccuracy()

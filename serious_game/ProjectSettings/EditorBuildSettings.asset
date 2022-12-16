@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Demo_Level1.unity
     guid: 501e5d849d10f0e47a72ddb7ba3c33b7
+  - enabled: 1
+    path: Assets/CharacterSelection.unity
+    guid: 3f8e9bcf1699f438fb44b27f42084998
   m_configObjects: {}
