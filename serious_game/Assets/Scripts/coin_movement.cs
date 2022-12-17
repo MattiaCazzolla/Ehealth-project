@@ -12,6 +12,7 @@ public class coin_movement : MonoBehaviour
     private int stimuli_type;
     public int score;
 
+    private ReactionTime reactionTime;
     private GameManager gameManager;
     private stimuli_spawner stimuli;
 
@@ -24,9 +25,8 @@ public class coin_movement : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         stimuli = GameObject.Find("STIMULI").GetComponent<stimuli_spawner>();
+        reactionTime = GameObject.Find("ReactionTime").GetComponent<ReactionTime>();
     }
-
-
     void Update()
     {
         transform.Translate(Vector3.left * (speed * Time.deltaTime));
@@ -65,13 +65,13 @@ public class coin_movement : MonoBehaviour
         scoreText.text = "Score: " + score;
 
 
-        float delta_react = stimuli.startTimeBtwnSpawn - gameManager.reactionTime ;
+        float delta_react = stimuli.startTimeBtwnSpawn - reactionTime.reactionTime ;
         Debug.Log("Reaction time: " + delta_react);
 
         if (delta_react > 0.05)
             gameManager.UpdateReactList(delta_react);
 
         
-        gameManager.reactionTime = 0;
+        reactionTime.reactionTime = 0;
     }
 }
