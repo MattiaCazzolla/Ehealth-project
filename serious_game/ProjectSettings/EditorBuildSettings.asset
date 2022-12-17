@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Transition.unity
     guid: 915e952e2d6c99b44bc832de416ea8db
-  - enabled: 1
+  - enabled: 0
     path: Assets/SceneLevel2.unity
     guid: 7c5883b0c3064b241a22a0e2ebb03f04
   - enabled: 1
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CharacterSelection.unity
     guid: 3f8e9bcf1699f438fb44b27f42084998
+  - enabled: 1
+    path: Assets/scene bonus/BonusLevel.unity
+    guid: 1eca7f9665c9be445a3f4e6caa5973e6
   m_configObjects: {}

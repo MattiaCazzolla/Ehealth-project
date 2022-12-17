@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class coin_movement_2 : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed = 1000;
     private GameManager gameManager;
+    public TextMeshProUGUI scoreText;
+    public int score;
 
     private void Start()
     {
@@ -30,7 +33,8 @@ public class coin_movement_2 : MonoBehaviour
         Debug.Log("hit a coin");
         gameObject.SetActive(false);
         gameObject.transform.position = new Vector3(14000, 100, 2500);
-        gameManager.UpdateScore(scoreToAdd);
+        score = gameManager.UpdateScore(scoreToAdd);
+        scoreText.text = "Score: " + score;
     }
 }
 
