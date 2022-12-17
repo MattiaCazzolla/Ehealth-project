@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class coin_movement : MonoBehaviour
 {
@@ -40,23 +41,36 @@ public class coin_movement : MonoBehaviour
     void OnTriggerEnter(Collider others)
     {
         scoreToAdd = 0;
+        
 
         stimuli_type = stimuli.current_type;
         stimuli_color = stimuli.current_color;
         coin_color = gameObject.GetComponentInChildren<MeshRenderer>().material.GetColor("_Color");
 
         if (gameManager.state == 0 & coin_type == stimuli_type)
+        {
             scoreToAdd = 1;
+            gameManager.correct += 1;
+        }
 
         if (gameManager.state == 1 & stimuli_color == coin_color)
-            scoreToAdd = 1;
+        {
+            scoreToAdd = 3;
+            gameManager.correct += 1;
+        }
 
         if (gameManager.state == 2)
         {
             if (stimuli.rand_state == 0 & coin_type == stimuli_type)
-                scoreToAdd = 1;
+            {
+                scoreToAdd = 5;
+                gameManager.correct += 1;
+            }
             if (stimuli.rand_state == 1 & stimuli_color == coin_color)
-                scoreToAdd = 1;
+            {
+                scoreToAdd = 5;
+                gameManager.correct += 1;
+            }
         }
 
         gameObject.SetActive(false);
@@ -65,12 +79,13 @@ public class coin_movement : MonoBehaviour
         scoreText.text = "Score: " + score;
 
 
-        float delta_react = stimuli.startTimeBtwnSpawn - reactionTime.reactionTime ;
+        double delta_react = stimuli.startTimeBtwnSpawn - reactionTime.reactionTime ;
+        delta_react = Math.Round(delta_react, 2);
+
         Debug.Log("Reaction time: " + delta_react);
 
-        if (delta_react > 0.05)
+        if (delta_react > 0.3)
             gameManager.UpdateReactList(delta_react);
-
         
         reactionTime.reactionTime = 0;
     }
