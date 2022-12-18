@@ -28,8 +28,11 @@ EditorBuildSettings:
     guid: 5465533cdb443d1489729f2a281667f3
   - enabled: 1
     path: Assets/scene bonus/DemoLevel1.unity
-    guid: 68cba24eec12c3841bf645d7aa2cf7ba
+    guid: 5cca7ca508c5f0248b38a3c8a47e1fea
   - enabled: 1
     path: Assets/scene bonus/DemoLevel2.unity
     guid: 824f68f3850ebf741b58ee606a5fd461
+  - enabled: 1
+    path: Assets/Scene1.unity
+    guid: 32f7bb9fb00f3ae4391828d2cc898b01
   m_configObjects: {}

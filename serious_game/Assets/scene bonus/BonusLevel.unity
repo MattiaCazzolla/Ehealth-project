@@ -2265,9 +2265,9 @@ MonoBehaviour:
   - {r: 0.030259816, g: 0.13039011, b: 0.9433962, a: 1}
   - {r: 0.08958072, g: 1, b: 0.050943293, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
-  startTimeBtwnSpawn: 2
-  timeFromSpawn: 2
-  lenghtLists: 5
+  startTimeBtwnSpawn: 0.75
+  timeFromSpawn: 0
+  lenghtLists: 8
   Objects0: []
   Objects1: []
   Objects2: []

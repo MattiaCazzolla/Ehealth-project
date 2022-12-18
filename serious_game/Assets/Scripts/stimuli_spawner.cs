@@ -52,9 +52,18 @@ public class stimuli_spawner : MonoBehaviour
         }
         else
         {
-            possibleColors[0] = new Color(0.067f,0.659f,0.667f);
-            possibleColors[1] = new Color(0.988f,0.49f,0.043f);
-            possibleColors[2] = new Color(0.482f,0.518f,0.561f);
+            if (gameManager.colorblind == 0)
+            {
+                possibleColors[0] = new Color(0.03025982f, 0.1303901f, 0.9433962f);
+                possibleColors[1] = new Color(1, 0, 0);
+                possibleColors[2] = new Color(0.08958072f, 1f, 0.05094329f);
+            }
+            else if (gameManager.colorblind == 1)
+            {
+                possibleColors[0] = new Color(0.067f, 0.659f, 0.667f);
+                possibleColors[1] = new Color(0.988f, 0.49f, 0.043f);
+                possibleColors[2] = new Color(0.482f, 0.518f, 0.561f);
+            }
         }
 
         if (timeFromSpawn <= 0)
