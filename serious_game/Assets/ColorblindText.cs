@@ -13,13 +13,13 @@ public class ColorblindText : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (gameManager.colorblind == 0)
         {
             colorblindText.text = "Colorblind mode: OFF";
         }
-        else if (gameManager.player == 1)
+        if (gameManager.colorblind == 1)
         {
             colorblindText.text = "Colorblind mode: ON";
         }

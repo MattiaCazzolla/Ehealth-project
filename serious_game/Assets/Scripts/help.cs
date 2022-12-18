@@ -7,7 +7,7 @@ public class help : MonoBehaviour
 {
     public void LoadGameScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 6){
+        if (SceneManager.GetActiveScene().buildIndex == 7){
             SceneManager.LoadScene("DemoLevel1");
         }
         else {
