@@ -16,7 +16,9 @@ public class coin_movement : MonoBehaviour
     private ReactionTime reactionTime;
     private GameManager gameManager;
     private stimuli_spawner stimuli;
-
+    
+    public AudioSource score_sound;
+    
     Color stimuli_color;
     Color coin_color;
 
@@ -27,6 +29,8 @@ public class coin_movement : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         stimuli = GameObject.Find("STIMULI").GetComponent<stimuli_spawner>();
         reactionTime = GameObject.Find("ReactionTime").GetComponent<ReactionTime>();
+        score_sound = scoreText.GetComponent<AudioSource>();
+       
     }
     void Update()
     {
@@ -50,12 +54,14 @@ public class coin_movement : MonoBehaviour
         if (gameManager.state == 0 & coin_type == stimuli_type)
         {
             scoreToAdd = 1;
+            score_sound.Play();
             gameManager.correct += 1;
         }
 
         if (gameManager.state == 1 & stimuli_color == coin_color)
         {
             scoreToAdd = 3;
+            score_sound.Play();
             gameManager.correct += 1;
         }
 
@@ -64,11 +70,13 @@ public class coin_movement : MonoBehaviour
             if (stimuli.rand_state == 0 & coin_type == stimuli_type)
             {
                 scoreToAdd = 5;
+                score_sound.Play();
                 gameManager.correct += 1;
             }
             if (stimuli.rand_state == 1 & stimuli_color == coin_color)
             {
                 scoreToAdd = 5;
+                score_sound.Play();
                 gameManager.correct += 1;
             }
         }
@@ -77,7 +85,8 @@ public class coin_movement : MonoBehaviour
         gameObject.transform.position = new Vector3(-3000, 150, 2000);
         score = gameManager.UpdateScore(scoreToAdd);
         scoreText.text = "Score: " + score;
-
+       
+        
 
         double delta_react = stimuli.startTimeBtwnSpawn - reactionTime.reactionTime ;
         delta_react = Math.Round(delta_react, 2);

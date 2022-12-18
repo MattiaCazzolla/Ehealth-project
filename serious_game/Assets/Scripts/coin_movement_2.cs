@@ -10,10 +10,12 @@ public class coin_movement_2 : MonoBehaviour
     private GameManager gameManager;
     public TextMeshProUGUI scoreText;
     public int score;
+    public AudioSource coin_sound;
 
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        coin_sound = scoreText.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,6 +37,7 @@ public class coin_movement_2 : MonoBehaviour
         gameObject.transform.position = new Vector3(14000, 100, 2500);
         score = gameManager.UpdateScore(scoreToAdd);
         scoreText.text = "Score: " + score;
+        coin_sound.Play();
     }
 }
 

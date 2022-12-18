@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private stimuli_spawner stimuli;
     public GameManager gameManager;
 
+    
     void Start()
     {
         DontDestroyOnLoad(gameManager);
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
             ComputeAccuracy();
         }
         return score;
-    }
+        }
 
     public void ComputeAccuracy()
     {
@@ -51,5 +52,4 @@ public class GameManager : MonoBehaviour
     {
         reactionTimeList = new List<double> (reactionTimeList.Append(delta));
     }
-   
-}
+ }
