@@ -17,7 +17,7 @@ public class Goback_scene : MonoBehaviour
     public void LoadGameScene()
     {
         SceneManager.LoadScene("Menu");
-        if ((SceneManager.GetActiveScene().buildIndex == 7) || (SceneManager.GetActiveScene().buildIndex == 8))
+        if ((SceneManager.GetActiveScene().buildIndex == 8) || (SceneManager.GetActiveScene().buildIndex == 9))
         {
             gameManager.score = 0;
         }

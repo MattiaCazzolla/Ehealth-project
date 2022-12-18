@@ -6860,9 +6860,9 @@ MonoBehaviour:
   reactionTimeList: []
   gameManager: {fileID: 0}
   sceneBuildIndexToLoad: 0
-  NeutralStimuli: 15
-  ConStimuli: 20
-  InconStimuli: 30
+  NeutralStimuli: 5
+  ConStimuli: 5
+  InconStimuli: 5
   delayBeforeLoading: 30
 --- !u!4 &1865249713
 Transform:

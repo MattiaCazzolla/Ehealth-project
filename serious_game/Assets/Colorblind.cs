@@ -6,7 +6,7 @@ public class Colorblind : MonoBehaviour
 {
     public GameManager gameManager;
 
-    private void Start()
+    private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
