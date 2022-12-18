@@ -362,10 +362,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787148985}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 94b8ed27953087444af9b1a04f53e848, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0bbe7ee5eabce1a48bc485d3268706ca, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.596
   m_Pitch: 1
@@ -470,6 +470,7 @@ MonoBehaviour:
   correct: 0
   player: 0
   colorblind: 0
+  totalScore: 0
   reactionTimeList: []
   gameManager: {fileID: 787148987}
 --- !u!4 &787148988
