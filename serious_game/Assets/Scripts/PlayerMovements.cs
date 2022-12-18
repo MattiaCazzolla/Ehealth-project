@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovements : MonoBehaviour
 {
-    private float increment;
+    private float increment=500;
     public Vector3 currentPos;
     private GameManager gameManager;
     private ReactionTime reactionTime;
@@ -31,15 +31,15 @@ public class PlayerMovements : MonoBehaviour
             increment = 500;
             gameObject.transform.position = new Vector3(-1600, 0, currentPos.z + increment);
             currentPos = gameObject.transform.position;
-            increment = 0;
+            //increment = 0;
             reactionTime.reactionTime = 0;
         }
-        if (Input.GetKey(KeyCode.RightArrow) && currentPos != new Vector3(-1600, 0,1500))
+        else if (Input.GetKey(KeyCode.RightArrow) && currentPos != new Vector3(-1600, 0,1500))
         {
             increment = -500;
             gameObject.transform.position = new Vector3(-1600, 0, currentPos.z + increment);
             currentPos = gameObject.transform.position;
-            increment = 0;
+            //increment = 0;
             reactionTime.reactionTime = 0;
         }
 

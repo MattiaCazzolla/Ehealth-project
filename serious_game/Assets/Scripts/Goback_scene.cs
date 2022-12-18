@@ -19,8 +19,7 @@ public class Goback_scene : MonoBehaviour
         SceneManager.LoadScene("Menu");
         if ((SceneManager.GetActiveScene().buildIndex == 7) || (SceneManager.GetActiveScene().buildIndex == 8))
         {
-            score = 0;
-            scoreText.text = "Score: " + score;
+            gameManager.score = 0;
         }
     }
 }

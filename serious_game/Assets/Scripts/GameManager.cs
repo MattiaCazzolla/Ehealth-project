@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public double accuracy;
     public int correct=0;
     public int player = 0;
+    public int colorblind;
 
     public List<double> reactionTimeList = new List<double>();
 

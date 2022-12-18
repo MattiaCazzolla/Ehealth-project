@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class demo2 : MonoBehaviour
+public class LoadMenu : MonoBehaviour
 {
-   public void LoadGameScene()
+    void Start()
     {
-        SceneManager.LoadScene("DemoLevel2");
+        SceneManager.LoadScene("Menu");
     }
 }

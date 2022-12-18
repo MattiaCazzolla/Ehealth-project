@@ -32,7 +32,6 @@ public class coin_movement_2 : MonoBehaviour
     void OnTriggerEnter(Collider others)
     {
         int scoreToAdd=1;
-        Debug.Log("hit a coin");
         gameObject.SetActive(false);
         gameObject.transform.position = new Vector3(14000, 100, 2500);
         score = gameManager.UpdateScore(scoreToAdd);
