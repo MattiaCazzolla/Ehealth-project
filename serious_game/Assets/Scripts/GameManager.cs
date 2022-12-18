@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int correct=0;
     public int player = 0;
     public int colorblind;
+    public int totalScore;
 
     public List<double> reactionTimeList = new List<double>();
 
@@ -52,5 +53,10 @@ public class GameManager : MonoBehaviour
     public void UpdateReactList(double delta)
     {
         reactionTimeList = new List<double> (reactionTimeList.Append(delta));
+    }
+
+    public void SaveScore()
+    {
+        totalScore += score;
     }
  }
