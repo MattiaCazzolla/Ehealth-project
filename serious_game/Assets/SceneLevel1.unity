@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17997241, g: 0.22533727, b: 0.30672434, a: 1}
+  m_IndirectSpecularColor: {r: 0.17997196, g: 0.2253364, b: 0.30672306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6860,9 +6860,9 @@ MonoBehaviour:
   reactionTimeList: []
   gameManager: {fileID: 0}
   sceneBuildIndexToLoad: 0
-  NeutralStimuli: 5
-  ConStimuli: 5
-  InconStimuli: 5
+  NeutralStimuli: 90
+  ConStimuli: 90
+  InconStimuli: 120
   delayBeforeLoading: 30
 --- !u!4 &1865249713
 Transform:

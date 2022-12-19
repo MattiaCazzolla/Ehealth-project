@@ -56,7 +56,7 @@ public class ReactionTime : MonoBehaviour
 
             write_stats();
 
-            update_score();
+            //update_score();
 
             SceneManager.LoadScene("Transition");
         }
