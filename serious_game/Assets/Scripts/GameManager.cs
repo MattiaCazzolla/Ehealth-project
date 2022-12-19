@@ -13,11 +13,12 @@ public class GameManager : MonoBehaviour
     public int state = 0;
     public int rand_state;
     public int score=0;
+    public int max_score=0;
     public double accuracy;
     public int correct=0;
     public int player = 0;
     public int colorblind;
-    public int totalScore;
+    public int totalScore=0;
 
     public List<double> reactionTimeList = new List<double>();
 
@@ -29,11 +30,12 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameManager);
     }
-    
+
+
     public int UpdateScore(int scoretoAdd)
     {
         score += scoretoAdd;
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             ComputeAccuracy();
         }
