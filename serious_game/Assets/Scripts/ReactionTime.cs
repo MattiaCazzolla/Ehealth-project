@@ -7,6 +7,10 @@ using System.Text;
 using System.IO;
 using System;
 using System.Globalization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+
 
 public class ReactionTime : MonoBehaviour
 {
@@ -50,12 +54,41 @@ public class ReactionTime : MonoBehaviour
         {
             Debug.Log("Avg reaction time: " + gameManager.reactionTimeList.Average());
 
-            double[] myArray = gameManager.reactionTimeList.ToArray();
+            write_stats();
 
-            string filename = DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".txt";
+            update_score();
 
-            File.WriteAllLines(filename, Array.ConvertAll(myArray, x => x.ToString()));
             SceneManager.LoadScene("Transition");
         }
+    }
+
+    public void write_stats()
+    {
+        double[] myArray = gameManager.reactionTimeList.ToArray();
+
+        string filename = DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".json";
+
+        stats_players _data = new stats_players();
+        _data.Accuracy = gameManager.accuracy;
+        _data.reaction = myArray;
+
+        string json =  JsonUtility.ToJson(_data, true);
+        File.WriteAllText(filename, json);
+    }
+
+    public void update_score()
+    {
+        string json = File.ReadAllText("score.json");
+        score_stats __data = JsonUtility.FromJson<score_stats>(json);
+
+        __data.TotScore += gameManager.score;
+
+        if (__data.MaxScore < gameManager.score)
+        {
+            __data.MaxScore = gameManager.score;
+        }
+
+        json =  JsonUtility.ToJson(__data, true);
+        File.WriteAllText("score.json", json);
     }
 }
