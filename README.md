@@ -3,6 +3,7 @@ Project of the course 'E-health methods and applications' @ Politecnico di Milan
 - ####  Mattia Cazzolla  ([@MattiaCazzolla](https://github.com/MattiaCazzolla)) mattia.cazzolla@mail.polimi.it
 - ####  Emma Lacagnina ([@EmmaLacagnina](https://github.com/EmmaLacagnina)) emma.lacagnina@mail.polimi.it
 - ####  Giorgia Maimone ([@GiorgiaMaimone](https://github.com/GiorgiaMaimone)) giorgia.maimone@mail.polimi.it
+Final grade: 14/15
 
 # Part 1: PubMed Scraper
 In the first part of the project we had to develop a *PubMed* scraper able to collect generic information from papers originated from a user search. <br>
